@@ -1,0 +1,20 @@
+{
+  "name": "game-engine-client",
+  "version": "1.0.0",
+  "description": "Game engine for serious game. Made to easily build serious game around the development ecosystem.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ligue-dev/game-engine-client.git"
+  },
+  "keywords": ["game-engine", "serious-game", "learn", "learn-development", "game"],
+  "author": "ligue.dev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ligue-dev/game-engine-client/issues"
+  },
+  "homepage": "https://github.com/ligue-dev/game-engine-client#readme"
+}
