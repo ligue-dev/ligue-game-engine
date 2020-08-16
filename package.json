@@ -10,11 +10,20 @@
     "type": "git",
     "url": "git+https://github.com/ligue-dev/game-engine-client.git"
   },
-  "keywords": ["game-engine", "serious-game", "learn", "learn-development", "game"],
+  "keywords": [
+    "game-engine",
+    "serious-game",
+    "learn",
+    "learn-development",
+    "game"
+  ],
   "author": "ligue.dev",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ligue-dev/game-engine-client/issues"
   },
-  "homepage": "https://github.com/ligue-dev/game-engine-client#readme"
+  "homepage": "https://github.com/ligue-dev/game-engine-client#readme",
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  }
 }
