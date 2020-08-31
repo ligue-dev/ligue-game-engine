@@ -25,7 +25,9 @@
     "@adonisjs/ignitor": "^2.0.8",
     "@adonisjs/lucid": "^6.1.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "prettier": "^2.1.1"
+  },
   "autoload": {
     "App": "./app"
   }
