@@ -1,28 +1,26 @@
-# Adonis API application
+# Serveur
+Bienvenue sur le dépôt du serveur de notre moteur de jeu.
 
-This is the boilerplate for creating an API server in AdonisJs, it comes pre-configured with.
+## Démarrage
+Le serveur est basé sur le framework (AdonisJS)[https://adonisjs.com/]. Le choix s'est porté vers ce framework pour avoir une bonne maintenabilité (contrairement à Express qui devient compliqué à maintenir lorsque l'application grossit). Dans un premier temps, nous n'utiliserons que quelques fonctionnalités donc la prise en main ne sera pas difficile.
 
-1. Bodyparser
-2. Authentication
-3. CORS
-4. Lucid ORM
-5. Migrations and seeds
-
-## Setup
-
-Use the adonis command to install the blueprint
-
+### Installation
 ```bash
-adonis new yardstick --api-only
+# Cloner le dépôt
+git clone -b master https://github.com/ligue-dev/ligue-game-client.git
+
+# Aller à la racine du projet
+cd ligue-game-engine
+
+# Aller dans la partie serveur
+cd server
+
+# Installer les paquets nécessaires
+npm install
 ```
 
-or manually clone the repo and then run `npm install`.
-
-
-### Migrations
-
-Run the following command to run startup migrations.
-
-```js
-adonis migration:run
-```
+### Lancer le serveur
+```bash
+npm run start
+# Par défaut, le serveur sera accessible via http://localhost:3333
+``` 
