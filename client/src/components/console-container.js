@@ -16,10 +16,11 @@ class ConsoleContainer extends LitElement {
     super.connectedCallback();
     const lines = document.querySelectorAll(`div[slot="line"]`);
     lines.forEach((line) => {
-      line.addEventListener("keyup", () => {
-        // TODO when ConsoleLine merged : put line number into the custom event details
-        line.dispatchEvent(new CustomEvent("newline", { bubbles: true }));
-        console.log("event dispatched");
+      line.addEventListener("keyup", (event) => {
+        if (event.keyCode === 13) {
+          // TODO when ConsoleLine merged : put line number into the custom event details
+          line.dispatchEvent(new CustomEvent("newline", { bubbles: true }));
+        }
       });
     });
   }
