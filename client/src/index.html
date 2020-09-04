@@ -7,7 +7,18 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <h1>Hello World!</h1>
+    <console-container language="Javascript">
+      <!-- replace these two slot lines by ConsoleLine components -->
+      <div slot="line">
+        <span>1</span>
+        <input value="first line" />
+      </div>
+      <div slot="line">
+        <span>2</span>
+        <input value="second line" />
+      </div>
+    </console-container>
     <script src="./index.js"></script>
+    <script src="components/console-container.js"></script>
   </body>
 </html>
