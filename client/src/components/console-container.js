@@ -1,4 +1,5 @@
 import { LitElement, html } from "lit-element";
+import { ConsoleLine } from "./consoleLine";
 
 class ConsoleContainer extends LitElement {
   static get properties() {
@@ -7,9 +8,17 @@ class ConsoleContainer extends LitElement {
     };
   }
 
-  _handleNewLine() {
+  /**
+   *
+   * @param {Event} event
+   */
+  _handleNewLine(event) {
     // TODO when ConsoleLine merged : add new component
-    console.log("new line required");
+    console.log("new line required : " + event.detail.lineNumber);
+    const line = new ConsoleLine();
+    line.setAttribute("line-numer", Number(event.detail.lineNumber) + 1);
+    line.setAttribute("slot", "line");
+    event.target.after(line);
   }
 
   _handleDeleteLine() {
@@ -18,13 +27,15 @@ class ConsoleContainer extends LitElement {
   }
 
   _handleKeyUp(event) {
-    const parent = event.target.parentNode;
-    console.log("TODO Get the id from here" + parent);
+    const target = event.target;
+    console.log(
+      `key received from console-line ${target.getAttribute("line-number")}`
+    );
   }
 
   connectedCallback() {
     super.connectedCallback();
-    const lines = document.querySelectorAll(`div[slot="line"]`);
+    const lines = document.querySelectorAll(`console-line[slot="line"]`);
     lines.forEach((line) => {
       line.addEventListener("keyup", (event) => {
         if (event.target.value.length === 0 && event.keyCode === 8) {
@@ -33,7 +44,15 @@ class ConsoleContainer extends LitElement {
 
         if (event.keyCode === 13) {
           // TODO when ConsoleLine merged : put line number into the custom event details
-          line.dispatchEvent(new CustomEvent("newline", { bubbles: true }));
+
+          const newLineEvent = new CustomEvent("newline", {
+            bubbles: true,
+            detail: {
+              lineNumber: line.getAttribute("line-number"),
+            },
+          });
+
+          line.dispatchEvent(newLineEvent);
         }
       });
     });

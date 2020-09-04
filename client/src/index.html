@@ -8,15 +8,8 @@
   </head>
   <body>
     <console-container language="Javascript">
-      <!-- replace these two slot lines by ConsoleLine components -->
-      <div slot="line">
-        <span>1</span>
-        <input value="first line" />
-      </div>
-      <div slot="line">
-        <span>2</span>
-        <input value="second line" />
-      </div>
+      <console-line slot="line" line-number="1"></console-line>
+      <console-line slot="line" line-number="2"></console-line>
     </console-container>
     <script src="./index.js"></script>
     <script src="components/console-container.js"></script>
