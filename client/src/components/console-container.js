@@ -17,6 +17,10 @@ class ConsoleContainer extends LitElement {
     const lines = document.querySelectorAll(`div[slot="line"]`);
     lines.forEach((line) => {
       line.addEventListener("keyup", (event) => {
+        if (event.target.value.length === 0 && event.keyCode === 8) {
+          line.dispatchEvent(new CustomEvent("deleteline", { bubbles: true }));
+        }
+
         if (event.keyCode === 13) {
           // TODO when ConsoleLine merged : put line number into the custom event details
           line.dispatchEvent(new CustomEvent("newline", { bubbles: true }));
