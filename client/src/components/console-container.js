@@ -12,6 +12,11 @@ class ConsoleContainer extends LitElement {
     console.log("new line required");
   }
 
+  _handleDeleteLine() {
+    // TODO when ConsoleLine merged : delete component
+    console.log("delete line request received");
+  }
+
   connectedCallback() {
     super.connectedCallback();
     const lines = document.querySelectorAll(`div[slot="line"]`);
@@ -33,7 +38,11 @@ class ConsoleContainer extends LitElement {
     return html`
       <div>
         <h2>${this.language} ${this.language != null ? "c" : "C"}onsole</h2>
-        <div id="lines-wrapper" @newline="${this._handleNewLine}">
+        <div
+          id="lines-wrapper"
+          @newline="${this._handleNewLine}"
+          @deleteline="${this._handleDeleteLine}"
+        >
           <slot name="line">
             <div>Fallback content (It will be an empty line by default)</div>
           </slot>
