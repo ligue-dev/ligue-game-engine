@@ -17,6 +17,11 @@ class ConsoleContainer extends LitElement {
     console.log("delete line request received");
   }
 
+  _handleKeyUp(event) {
+    const parent = event.target.parentNode;
+    console.log("TODO Get the id from here" + parent);
+  }
+
   connectedCallback() {
     super.connectedCallback();
     const lines = document.querySelectorAll(`div[slot="line"]`);
@@ -40,6 +45,7 @@ class ConsoleContainer extends LitElement {
         <h2>${this.language} ${this.language != null ? "c" : "C"}onsole</h2>
         <div
           id="lines-wrapper"
+          @keyup="${this._handleKeyUp}"
           @newline="${this._handleNewLine}"
           @deleteline="${this._handleDeleteLine}"
         >
